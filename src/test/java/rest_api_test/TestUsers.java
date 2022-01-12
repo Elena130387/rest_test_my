@@ -43,7 +43,7 @@ int i;
     assertEquals(userResponseData.getData(),userResponse.getData());
     DataUser dataUserNew = new DataUser().withId(userResponse.getData().getId()).withName(userResponse.getData().getName()).withEmail("svetlana_" + i + "@gmail.ru")
                     .withGender("female").withStatus(userResponse.getData().getStatus());
-   // UserResponseArray userResponseArray = userController.sendRequestGet();
+    UserResponseArray userResponseArray = userController.sendRequestGet();
     UserResponse userResponseNew = userController.changeUser(dataUserNew);
     assertEquals(userResponseNew.getData(),dataUserNew);
     userController.saveAsCsv(userResponse.getData().getId());

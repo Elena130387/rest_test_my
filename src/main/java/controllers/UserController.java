@@ -73,7 +73,7 @@ public class UserController extends DataForController {
             .accept("application/json")
             .contentType(ContentType.JSON)
             .header("Authorization", "Bearer " + (String.format(properties.getProperty("token"))))
-            .get (String.format(properties.getProperty("url"))).asString();
+            .get (String.format(properties.getProperty("url") + "%s", path)).asString();
     Gson gson = new Gson();
     return gson.fromJson(json, UserResponseArray.class);
   }
