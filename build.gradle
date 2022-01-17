@@ -5,9 +5,9 @@ repositories {
     mavenCentral()
 }
 
-plugins {
-    id 'io.qameta.allure'
-}
+//plugins {
+//    id 'io.qameta.allure'
+//}
 
 dependencies {
     implementation 'org.testng:testng:7.4.0'
@@ -18,11 +18,14 @@ dependencies {
     implementation group: 'io.qameta.allure', name: 'allure-testng', version: '2.2.1'
 }
 
-allure {
-    version = '2.2.1'
-    autoconfigure = true
-    aspectjweaver = true
-    allureJavaVersion = LATEST_VERSION
-}
+//allure {
+//    version = '2.2.1'
+//    autoconfigure = true
+//    aspectjweaver = true
+//    allureJavaVersion = LATEST_VERSION
+//}
 
+test {
+    useTestNG()
+}
 
