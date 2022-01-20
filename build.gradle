@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.testng:testng:7.4.0'
+    implementation 'org.testng:testng:6.14.2'
     implementation 'com.google.code.gson:gson:2.8.8'
     implementation 'org.apache.httpcomponents:httpclient:4.5.13'
     implementation 'org.apache.httpcomponents:fluent-hc:4.5.13'
@@ -29,7 +29,14 @@ allure {
     version = '2.2.1'
     autoconfigure = true
     aspectjweaver = true
-    allureJavaVersion = '2.10.0'
-
 }
 
+task testPD(type: Test){
+    useTestNG{
+        suites "src/test/resources/testng_suit.xml"
+    }
+}
+
+test{
+    useTestNG()
+}
