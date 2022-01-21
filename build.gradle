@@ -1,31 +1,42 @@
-apply plugin: 'java'
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "io.qameta.allure:allure-gradle:2.3"
+    }
+}
 
+plugins {
+    id 'java'
+}
+
+apply plugin: 'io.qameta.allure'
 
 repositories {
     mavenCentral()
 }
 
-//plugins {
-//    id 'io.qameta.allure'
-//}
-
 dependencies {
-    implementation 'org.testng:testng:7.4.0'
+    implementation 'org.testng:testng:6.14.2'
     implementation 'com.google.code.gson:gson:2.8.8'
     implementation 'org.apache.httpcomponents:httpclient:4.5.13'
     implementation 'org.apache.httpcomponents:fluent-hc:4.5.13'
     implementation 'com.jayway.restassured:rest-assured:2.9.0'
-//    implementation group: 'io.qameta.allure', name: 'allure-testng', version: '2.2.1'
 }
 
-//allure {
-//    version = '2.2.1'
-//    autoconfigure = true
-//    aspectjweaver = true
-//    allureJavaVersion = LATEST_VERSION
-//}
+allure {
+    version = '2.2.1'
+    autoconfigure = true
+    aspectjweaver = true
+}
 
-test {
+task testPD(type: Test){
+    useTestNG{
+        suites "src/test/resources/testng_suit.xml"
+    }
+}
+
+test{
     useTestNG()
 }
-
