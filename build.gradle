@@ -31,11 +31,11 @@ allure {
     aspectjweaver = true
 }
 
-task testPD(type: Test){
-    useTestNG{
-        suites "src/test/resources/testng_suit.xml"
-    }
-}
+//task testPD(type: Test){
+//    useTestNG{
+//        suites "src/test/resources/testng_suit.xml"
+//    }
+//}
 
 test{
     useTestNG()
