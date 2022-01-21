@@ -17,6 +17,10 @@ repositories {
     mavenCentral()
 }
 
+configurations {
+    testCompile
+}
+
 dependencies {
     implementation 'org.testng:testng:6.14.2'
     implementation 'com.google.code.gson:gson:2.8.8'
